@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
   #   vb.gui = true
-    vb.memory = "512"
+    vb.memory = "128"
     vb.cpus = 1
   end
 
@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
     u1.vm.box = "ubuntu/xenial64"
     u1.vm.network "private_network", ip: "10.0.0.11"
     u1.vm.hostname = "u1"
+    config.ssh.insert_key = false
   end
 
   config.vm.provision "shell", inline: <<-SHELL
